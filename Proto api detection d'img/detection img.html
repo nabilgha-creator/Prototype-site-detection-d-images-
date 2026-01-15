@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Détection d'objets</title>
+  <link rel="stylesheet" href="style-imge.css" />
+</head>
+
+<body>
+  <header class="container">
+    <h1>Détection d’images</h1>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <input id="urlInput" type="url" placeholder="Colle l’URL d’une image" />
+      <input id="fileInput" type="file" accept="image/*" hidden>
+
+     <button id="fileBtn" type="button" class="btn-secondary">Importer</button>
+     <span id="fileName" class="file-name">Aucun fichier</span>
+
+      <button id="detectBtn">Détecter</button>
+      <span id="status"></span>
+    </section>
+
+    <section class="content">
+      <div class="viewer">
+        <img id="img" alt="Image" />
+        <canvas id="overlay"></canvas>
+      </div>
+
+      <div class="results">
+        <h2>Objets détectés</h2>
+        <ul id="list"></ul>
+        <p class="hint">
+          Si ça échoue avec certaines images, c’est souvent le <b>CORS</b> (le site bloque l’accès aux pixels).
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- TensorFlow.js + coco-ssd (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+
+  <script src="script-img.js"></script>
+</body>
+</html>
